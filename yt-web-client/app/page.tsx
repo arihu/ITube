@@ -6,16 +6,19 @@ export default async function Home() {
     const videos = await getVideos();
 
     return (
-        <main className="flex m-10">
-          <h1 className="mb-4 text-3xl">Home</h1> 
-            {
-                videos.map((video) => (
+      <main className="flex m-10">
+        <h1 className="mb-4 text-3xl">Home</h1> 
+          {
+              videos.map((video) => (
+                  <div>
                     <Link href={`/watch?v=${video.filename}`} key={video.id}>
-                        <Image src="/thumbnail.PNG" alt="video" width={210} height={140} className="m-10" />
+                      <Image src="/thumbnail.PNG" alt="video" width={210} height={140} className="m-10" />
                     </Link>
-                ))
-            }
-        </main>
+                    {/* <div >{video.filename}</div> */}
+                  </div>
+              ))
+          }
+      </main>
     )
 }
 
